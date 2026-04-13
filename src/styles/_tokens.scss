@@ -1,0 +1,86 @@
+// Design tokens — FicsitMonitorWeb
+// Exposed as CSS custom properties so components can read them at runtime
+// and dark mode can override without re-importing SCSS.
+//
+// Color palette is based on the original Vite boilerplate (preserved) but
+// rebranded: FicsitMonitor uses the same purple accent as Satisfactory's
+// AWESOME Sink branding.
+
+:root {
+  // Surfaces
+  --bg: #ffffff;
+  --bg-elevated: #f4f3ec;
+  --border: #e5e4e7;
+  --shadow:
+    rgb(0 0 0 / 0.1) 0 10px 15px -3px,
+    rgb(0 0 0 / 0.05) 0 4px 6px -2px;
+
+  // Text
+  --text: #6b6375;
+  --text-h: #08060d;
+  --text-muted: #9ca3af;
+
+  // Brand accents
+  --accent: #aa3bff;
+  --accent-bg: rgb(170 59 255 / 0.1);
+  --accent-border: rgb(170 59 255 / 0.5);
+
+  // Status colors
+  --ok: #10b981;
+  --warn: #f59e0b;
+  --err: #ef4444;
+
+  // Typography
+  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, "Courier New", monospace;
+
+  // Spacing scale (4-based)
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+
+  // Radii
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16171d;
+    --bg-elevated: #1f2028;
+    --border: #2e303a;
+    --shadow:
+      rgb(0 0 0 / 0.4) 0 10px 15px -3px,
+      rgb(0 0 0 / 0.25) 0 4px 6px -2px;
+
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --text-muted: #6b7280;
+
+    --accent: #c084fc;
+    --accent-bg: rgb(192 132 252 / 0.15);
+    --accent-border: rgb(192 132 252 / 0.5);
+
+    --ok: #34d399;
+    --warn: #fbbf24;
+    --err: #f87171;
+  }
+}
+
+// Breakpoint map — consumed by mixins.
+$breakpoints: (
+  "sm": 640px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px,
+);
