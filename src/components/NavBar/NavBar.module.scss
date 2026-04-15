@@ -1,0 +1,148 @@
+@use "../../styles/mixins" as mx;
+@use "../../styles/glass" as glass;
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  @include glass.glass-panel;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--sp-4) var(--sp-8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 20px 60px rgba(249, 115, 22, 0.05);
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.05em;
+  color: var(--primary-container);
+  text-decoration: none;
+  flex-shrink: 0;
+
+  &:hover {
+    color: #fb923c;
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+  font-family: var(--font-body);
+  font-weight: 500;
+
+  @include mx.max(md) {
+    display: none;
+  }
+
+  a {
+    color: var(--on-surface-variant);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 0.9375rem;
+
+    &:hover {
+      color: var(--primary-container);
+    }
+  }
+}
+
+.linkActive {
+  color: var(--primary-container) !important;
+  border-bottom: 2px solid var(--primary-container);
+  padding-bottom: 4px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+}
+
+.langSwitch {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(88, 66, 55, 0.3);
+  background: var(--surface-container);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  span {
+    color: rgba(88, 66, 55, 0.5);
+  }
+}
+
+.langBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--on-surface-variant);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--primary-container);
+  }
+}
+
+.langActive {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+  color: var(--primary-container);
+
+  &:hover {
+    color: var(--primary-container);
+  }
+}
+
+.loginLink {
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--primary-container);
+  }
+}
+
+.ctaBtn {
+  background: var(--primary-container);
+  color: #582200;
+  padding: var(--sp-2) var(--sp-5);
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);
+  transition: opacity 0.2s, transform 0.15s;
+
+  &:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}

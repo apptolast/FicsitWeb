@@ -1,0 +1,102 @@
+@use "../../styles/mixins" as mx;
+
+.section {
+  padding: 100px var(--sp-8);
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(249, 115, 22, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-8);
+}
+
+.headline {
+  font-family: var(--font-headline);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--on-surface);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.sub {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--on-surface-variant);
+  margin: 0;
+  max-width: 560px;
+}
+
+.ctas {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ctaPrimary {
+  background: var(--primary-container);
+  color: #582200;
+  padding: var(--sp-4) var(--sp-10);
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  text-decoration: none;
+  box-shadow: 0 0 25px rgba(249, 115, 22, 0.45);
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(249, 115, 22, 0.6);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.ctaSecondary {
+  background: none;
+  border: 1px solid rgba(88, 66, 55, 0.4);
+  color: var(--on-surface-variant);
+  padding: var(--sp-4) var(--sp-10);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+
+  &:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    background: rgba(93, 230, 255, 0.05);
+  }
+}

@@ -1,24 +1,20 @@
-import { Layout } from "./components/Layout/Layout";
-import { ServerHealth } from "./components/ServerHealth/ServerHealth";
-import { useBootstrap } from "./hooks/useBootstrap";
-import { useServerStore } from "./lib/stores/useServerStore";
-import "./App.scss";
+import { createBrowserRouter, RouterProvider } from 'react-router';
+import { useState } from 'react';
+import { LangContext, type Lang } from './lib/i18n';
+import { LandingPage } from './pages/LandingPage/LandingPage';
+import { DashboardPage } from './pages/DashboardPage/DashboardPage';
+
+const router = createBrowserRouter([
+  { path: '/', element: <LandingPage /> },
+  { path: '/dashboard', element: <DashboardPage /> },
+]);
 
 function App() {
-  useBootstrap();
-  const loadState = useServerStore((s) => s.loadState);
-  const error = useServerStore((s) => s.error);
-
+  const [lang, setLang] = useState<Lang>('es');
   return (
-    <Layout>
-      {loadState === "loading" && <p>Cargando dashboard…</p>}
-      {loadState === "error" && (
-        <p role="alert" style={{ color: "var(--err)" }}>
-          {error}
-        </p>
-      )}
-      {loadState === "ready" && <ServerHealth />}
-    </Layout>
+    <LangContext.Provider value={{ lang, setLang }}>
+      <RouterProvider router={router} />
+    </LangContext.Provider>
   );
 }
 

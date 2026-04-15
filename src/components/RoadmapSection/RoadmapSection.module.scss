@@ -1,0 +1,210 @@
+@use "../../styles/mixins" as mx;
+
+.section {
+  padding: 80px var(--sp-8);
+  background: var(--surface-low);
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-container);
+}
+
+.title {
+  font-family: var(--font-headline);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--on-surface);
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.sub {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--on-surface-variant);
+  margin: 0;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-6);
+
+  @include mx.max(lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.line {
+  position: absolute;
+  top: 24px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--primary-container) 25%,
+    var(--surface-highest) 25%
+  );
+  z-index: 0;
+
+  @include mx.max(lg) {
+    display: none;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-5);
+  position: relative;
+  z-index: 1;
+}
+
+.node {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-highest);
+  border: 2px solid var(--surface-highest);
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+
+.itemActive .node {
+  border-color: var(--primary-container);
+  background: rgba(249, 115, 22, 0.1);
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.25);
+}
+
+.nodeDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--surface-variant, var(--outline-variant));
+  opacity: 0.4;
+}
+
+.itemActive .nodeDot {
+  background: var(--primary-container);
+  opacity: 1;
+  box-shadow: 0 0 8px rgba(249, 115, 22, 0.6);
+}
+
+.card {
+  padding: var(--sp-6);
+  background: var(--surface-highest);
+  border: 1px solid rgba(88, 66, 55, 0.2);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.itemActive .card {
+  background: var(--surface-high);
+  border-color: rgba(249, 115, 22, 0.3);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.08);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.qLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--on-surface-variant);
+}
+
+.itemActive .qLabel {
+  color: var(--primary-container);
+}
+
+.nowBadge {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tertiary);
+  background: rgba(74, 225, 118, 0.12);
+  border: 1px solid rgba(74, 225, 118, 0.25);
+  padding: 1px var(--sp-2);
+  border-radius: var(--radius-sm);
+}
+
+.cardTitle {
+  font-family: var(--font-headline);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin: 0;
+}
+
+.featureList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--on-surface-variant);
+
+  .material-symbols-outlined {
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+}
+
+.itemActive .featureItem .material-symbols-outlined {
+  color: var(--primary-container);
+  opacity: 0.8;
+}

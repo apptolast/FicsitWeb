@@ -1,0 +1,24 @@
+.page {
+  position: relative;
+  background: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  min-height: 100svh;
+  overflow-x: hidden;
+}
+
+.gridBg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(circle, #584237 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.08;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  padding-top: 72px;
+}

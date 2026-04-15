@@ -1,0 +1,299 @@
+@use "../../styles/mixins" as mx;
+
+.section {
+  padding: 80px var(--sp-8);
+  background: var(--surface-low);
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-container);
+}
+
+.title {
+  font-family: var(--font-headline);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--on-surface);
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.sub {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--on-surface-variant);
+  margin: 0;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid rgba(88, 66, 55, 0.3);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface-container);
+}
+
+.toggleBtn {
+  padding: var(--sp-2) var(--sp-6);
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+
+  &:hover {
+    color: var(--on-surface);
+    background: var(--surface-high);
+  }
+}
+
+.toggleActive {
+  padding: var(--sp-2) var(--sp-6);
+  background: var(--surface-high);
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary-container);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.saveBadge {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--tertiary);
+  background: rgba(74, 225, 118, 0.12);
+  padding: 1px var(--sp-2);
+  border-radius: var(--radius-sm);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+  align-items: start;
+
+  @include mx.max(xl) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mx.max(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  padding: var(--sp-8);
+  background: var(--surface-container);
+  border: 1px solid rgba(88, 66, 55, 0.2);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.cardFeatured {
+  border-color: var(--primary-container);
+  background: var(--surface-high);
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.15), 0 20px 60px rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 40px rgba(249, 115, 22, 0.25), 0 30px 60px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.recommendedBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary-container);
+  color: #582200;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: var(--sp-1) var(--sp-4);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.tier {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-1);
+}
+
+.price {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.mo {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+}
+
+.features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  flex: 1;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+
+  .material-symbols-outlined {
+    font-size: 1rem;
+    color: var(--tertiary);
+    flex-shrink: 0;
+  }
+}
+
+.cardCta {
+  display: block;
+  text-align: center;
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid rgba(88, 66, 55, 0.3);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+
+  &:hover {
+    border-color: var(--primary-container);
+    color: var(--primary-container);
+    background: rgba(249, 115, 22, 0.06);
+  }
+}
+
+.cardCtaFeatured {
+  display: block;
+  text-align: center;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--primary-container);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: #582200;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);
+  transition: opacity 0.2s, transform 0.15s;
+
+  &:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+.enterprise {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  padding: var(--sp-6);
+  border: 1px solid rgba(88, 66, 55, 0.2);
+  border-radius: var(--radius-lg);
+  background: var(--surface-container);
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.enterpriseText {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--on-surface-variant);
+  margin: 0;
+}
+
+.enterpriseCta {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--secondary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+}

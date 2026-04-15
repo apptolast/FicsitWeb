@@ -1,0 +1,145 @@
+@use "../../styles/mixins" as mx;
+
+.section {
+  padding: 80px var(--sp-8);
+  background: var(--surface);
+  position: relative;
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-container);
+}
+
+.title {
+  font-family: var(--font-headline);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--on-surface);
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.sub {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--on-surface-variant);
+  margin: 0;
+  max-width: 520px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-8);
+  position: relative;
+
+  // Connecting line behind the steps
+  &::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(16.67% + 16px);
+    right: calc(16.67% + 16px);
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-container), rgba(249, 115, 22, 0.2));
+    z-index: 0;
+  }
+
+  @include mx.max(lg) {
+    grid-template-columns: 1fr;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-5);
+  position: relative;
+  z-index: 1;
+}
+
+.stepNum {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--primary-container);
+  background: rgba(249, 115, 22, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.2);
+
+  span {
+    font-family: var(--font-mono);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary-container);
+    letter-spacing: 0.05em;
+  }
+}
+
+.imgWrapper {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(88, 66, 55, 0.2);
+  filter: grayscale(0.6);
+  transition: filter 0.4s;
+
+  &:hover {
+    filter: grayscale(0);
+  }
+}
+
+.stepImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.stepTitle {
+  font-family: var(--font-headline);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin: 0;
+}
+
+.stepDesc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--on-surface-variant);
+  margin: 0;
+  max-width: 300px;
+}
