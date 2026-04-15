@@ -3,6 +3,18 @@
 .section {
   padding: 80px var(--sp-8);
   background: var(--surface-low);
+
+  @include mx.max(lg) {
+    padding: 64px var(--sp-6);
+  }
+
+  @include mx.max(md) {
+    padding: 48px var(--sp-4);
+  }
+
+  @include mx.max(sm) {
+    padding: 32px var(--sp-3);
+  }
 }
 
 .inner {
@@ -47,6 +59,10 @@
   color: var(--on-surface-variant);
   margin: 0;
   max-width: 560px;
+
+  @include mx.max(sm) {
+    font-size: 0.9rem;
+  }
 }
 
 .grid {
@@ -79,11 +95,24 @@
     background: var(--surface-high);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(249, 115, 22, 0.05);
   }
+
+  @include mx.max(md) {
+    padding: var(--sp-5);
+  }
+
+  @include mx.max(sm) {
+    padding: var(--sp-4);
+  }
 }
 
 .icon {
   font-size: 2rem;
   color: var(--primary-container);
+
+  @include mx.max(sm) {
+    font-size: 2rem;
+    margin-bottom: var(--sp-3);
+  }
 }
 
 .cardTitle {

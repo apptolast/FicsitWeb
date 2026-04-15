@@ -1,3 +1,5 @@
+@use "../../styles/mixins" as mx;
+
 .page {
   position: relative;
   background: var(--surface);
@@ -21,4 +23,12 @@ main {
   position: relative;
   z-index: 1;
   padding-top: 72px;
+
+  @include mx.max(md) {
+    padding-top: 64px;
+  }
+
+  @include mx.max(sm) {
+    padding-top: 60px;
+  }
 }

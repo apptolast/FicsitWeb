@@ -1,83 +1,100 @@
-// Design tokens — FicsitMonitorWeb
-// Exposed as CSS custom properties so components can read them at runtime
-// and dark mode can override without re-importing SCSS.
-//
-// Color palette is based on the original Vite boilerplate (preserved) but
-// rebranded: FicsitMonitor uses the same purple accent as Satisfactory's
-// AWESOME Sink branding.
+// Design tokens — FicsitMonitorWeb "Kinetic Blueprint"
+// Dark-only industrial palette. No light mode.
+// Aliases mantienen compatibilidad con componentes existentes.
 
 :root {
-  // Surfaces
-  --bg: #ffffff;
-  --bg-elevated: #f4f3ec;
-  --border: #e5e4e7;
-  --shadow:
-    rgb(0 0 0 / 0.1) 0 10px 15px -3px,
-    rgb(0 0 0 / 0.05) 0 4px 6px -2px;
+  // =====================================================
+  // SURFACE HIERARCHY (5 niveles de "placas" físicas)
+  // =====================================================
+  --surface-lowest:   #0a0e17;  // Deep chassis / background grid
+  --surface-low:      #181b25;  // Secondary nav / sidebar backing
+  --surface:          #0f131c;  // Page background
+  --surface-container: #1c1f29; // Primary card surfaces
+  --surface-high:     #262a34;  // Interactive / elevated cards
+  --surface-highest:  #31353f;  // Pop-overs / machined insets
+  --surface-bright:   #353943;  // Active highlight
 
-  // Text
-  --text: #6b6375;
-  --text-h: #08060d;
-  --text-muted: #9ca3af;
+  // =====================================================
+  // TEXT
+  // =====================================================
+  --on-surface:         #dfe2ef;  // Primary text
+  --on-surface-variant: #e0c0b1;  // Secondary / muted text
 
-  // Brand accents
-  --accent: #aa3bff;
-  --accent-bg: rgb(170 59 255 / 0.1);
-  --accent-border: rgb(170 59 255 / 0.5);
+  // =====================================================
+  // BRAND ACCENT — "Ficsit Orange" + "Data Cyan"
+  // =====================================================
+  --primary:              #ffb690;  // Light peach (on dark surfaces)
+  --primary-container:    #f97316;  // CTA / active orange
+  --on-primary:           #552100;
+  --on-primary-container: #582200;
 
-  // Status colors
-  --ok: #10b981;
-  --warn: #f59e0b;
-  --err: #ef4444;
+  --secondary:            #5de6ff;  // Data cyan (numeric readouts)
+  --secondary-container:  #00cbe6;
 
-  // Typography
-  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
-  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, "Courier New", monospace;
+  // =====================================================
+  // STATUS
+  // =====================================================
+  --tertiary:  #4ae176;  // Green / success
+  --error:     #ffb4ab;  // Error state
 
-  // Spacing scale (4-based)
-  --sp-1: 4px;
-  --sp-2: 8px;
-  --sp-3: 12px;
-  --sp-4: 16px;
-  --sp-5: 20px;
-  --sp-6: 24px;
-  --sp-8: 32px;
+  // =====================================================
+  // BORDERS
+  // =====================================================
+  --outline:         #a78b7d;
+  --outline-variant: #584237;  // Ghost border base: rgba(88,66,55,0.2)
+
+  // =====================================================
+  // TYPOGRAPHY
+  // =====================================================
+  --font-headline: 'Space Grotesk', sans-serif;
+  --font-body:     'IBM Plex Sans', sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
+
+  // =====================================================
+  // BACKWARDS-COMPAT ALIASES (para Layout + ServerHealth existentes)
+  // =====================================================
+  --bg:           var(--surface);
+  --bg-elevated:  var(--surface-container);
+  --border:       rgba(88, 66, 55, 0.2);
+  --text:         var(--on-surface);
+  --text-h:       var(--on-surface);
+  --text-muted:   var(--on-surface-variant);
+  --accent:       var(--primary-container);
+  --accent-bg:    rgba(249, 115, 22, 0.1);
+  --accent-border: rgba(249, 115, 22, 0.5);
+  --ok:    var(--tertiary);
+  --warn:  #fbbf24;
+  --err:   var(--error);
+
+  // Legacy sans/heading/mono aliases
+  --sans:    var(--font-body);
+  --heading: var(--font-headline);
+  --mono:    var(--font-mono);
+
+  // =====================================================
+  // SPACING SCALE (4px base — NO CAMBIAR)
+  // =====================================================
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
   --sp-10: 40px;
   --sp-12: 48px;
 
-  // Radii
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  // =====================================================
+  // RADII — industrial tight corners (NO pills)
+  // =====================================================
+  --radius-sm: 2px;   // 0.125rem — machined industrial
+  --radius-md: 4px;   // 0.25rem
+  --radius-lg: 8px;   // 0.5rem
 
-  color-scheme: light dark;
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #16171d;
-    --bg-elevated: #1f2028;
-    --border: #2e303a;
-    --shadow:
-      rgb(0 0 0 / 0.4) 0 10px 15px -3px,
-      rgb(0 0 0 / 0.25) 0 4px 6px -2px;
-
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --text-muted: #6b7280;
-
-    --accent: #c084fc;
-    --accent-bg: rgb(192 132 252 / 0.15);
-    --accent-border: rgb(192 132 252 / 0.5);
-
-    --ok: #34d399;
-    --warn: #fbbf24;
-    --err: #f87171;
-  }
-}
-
-// Breakpoint map — consumed by mixins.
+// Breakpoint map — consumido por _mixins.scss
 $breakpoints: (
   "sm": 640px,
   "md": 768px,

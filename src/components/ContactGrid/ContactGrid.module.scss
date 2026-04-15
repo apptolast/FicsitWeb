@@ -4,6 +4,14 @@
   padding: 64px var(--sp-8);
   background: var(--surface-low);
   border-top: 1px solid rgba(88, 66, 55, 0.2);
+
+  @include mx.max(md) {
+    padding: 48px var(--sp-4);
+  }
+
+  @include mx.max(sm) {
+    padding: 32px var(--sp-3);
+  }
 }
 
 .inner {
@@ -78,11 +86,20 @@
     outline: 2px solid var(--primary-container);
     outline-offset: 2px;
   }
+
+  @include mx.max(sm) {
+    aspect-ratio: 1;
+    padding: var(--sp-3);
+  }
 }
 
 .icon {
   font-size: 2rem;
   color: var(--primary-container);
+
+  @include mx.max(sm) {
+    font-size: 1.75rem;
+  }
 }
 
 .label {
@@ -93,4 +110,8 @@
   text-transform: uppercase;
   color: var(--on-surface-variant);
   text-align: center;
+
+  @include mx.max(sm) {
+    font-size: 0.55rem;
+  }
 }

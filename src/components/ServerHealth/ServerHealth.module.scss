@@ -1,8 +1,8 @@
 @use "../../styles/mixins" as mx;
 
 .card {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
+  background: var(--surface-container);
+  border: 1px solid rgba(88, 66, 55, 0.2);
   border-radius: var(--radius-lg);
   padding: var(--sp-6);
   display: flex;
@@ -24,7 +24,8 @@
 .title {
   margin: 0;
   font-size: 1.25rem;
-  color: var(--text-h);
+  font-family: var(--font-headline);
+  color: var(--on-surface);
 }
 
 .badge {
@@ -33,33 +34,34 @@
   gap: var(--sp-2);
   padding: var(--sp-1) var(--sp-3);
   border-radius: var(--radius-sm);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 
   &::before {
     content: "";
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: currentColor;
   }
 }
 
 .badgeOnline {
-  color: var(--ok);
-  background: rgb(16 185 129 / 0.1);
+  color: var(--tertiary);
+  background: rgba(74, 225, 118, 0.1);
 }
 
 .badgeOffline {
-  color: var(--err);
-  background: rgb(239 68 68 / 0.1);
+  color: var(--error);
+  background: rgba(255, 180, 171, 0.1);
 }
 
 .badgeUnknown {
-  color: var(--text-muted);
-  background: rgb(107 114 128 / 0.1);
+  color: var(--on-surface-variant);
+  background: rgba(224, 192, 177, 0.1);
 }
 
 .grid {
@@ -75,19 +77,22 @@
 }
 
 .metricLabel {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  color: var(--on-surface-variant);
 }
 
 .metricValue {
   font-size: 1.5rem;
-  color: var(--text-h);
+  font-family: var(--font-mono);
+  color: var(--secondary);
   font-variant-numeric: tabular-nums;
 }
 
 .placeholder {
-  color: var(--text-muted);
+  color: var(--on-surface-variant);
   font-style: italic;
+  font-size: 0.875rem;
 }

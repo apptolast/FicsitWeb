@@ -4,6 +4,10 @@
   background: var(--surface-lowest);
   border-top: 4px solid var(--primary-container);
   padding: 64px var(--sp-8) var(--sp-10);
+
+  @include mx.max(sm) {
+    padding: var(--sp-8) var(--sp-4);
+  }
 }
 
 .inner {
@@ -20,6 +24,10 @@
   @include mx.max(md) {
     grid-template-columns: 1fr;
     gap: var(--sp-8);
+  }
+
+  @include mx.max(sm) {
+    gap: var(--sp-6);
   }
 }
 
@@ -41,6 +49,10 @@
   &:hover {
     color: #fb923c;
   }
+
+  @include mx.max(sm) {
+    font-size: 1rem;
+  }
 }
 
 .tagline {
@@ -51,6 +63,10 @@
   margin: 0;
   max-width: 280px;
   opacity: 0.7;
+
+  @include mx.max(sm) {
+    font-size: 0.8rem;
+  }
 }
 
 .copyright {

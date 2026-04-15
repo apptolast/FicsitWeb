@@ -3,6 +3,18 @@
 .section {
   padding: 80px var(--sp-8);
   background: var(--surface-low);
+
+  @include mx.max(lg) {
+    padding: 64px var(--sp-6);
+  }
+
+  @include mx.max(md) {
+    padding: 48px var(--sp-4);
+  }
+
+  @include mx.max(sm) {
+    padding: 32px var(--sp-3);
+  }
 }
 
 .inner {
@@ -111,6 +123,10 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  @include mx.max(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   @include mx.max(md) {
     grid-template-columns: 1fr;
   }
@@ -130,6 +146,14 @@
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  @include mx.max(md) {
+    padding: var(--sp-6);
+  }
+
+  @include mx.max(sm) {
+    padding: var(--sp-4);
   }
 }
 
@@ -189,6 +213,10 @@
   color: var(--on-surface);
   letter-spacing: -0.04em;
   line-height: 1;
+
+  @include mx.max(sm) {
+    font-size: 2rem;
+  }
 }
 
 .mo {
@@ -274,6 +302,12 @@
   background: var(--surface-container);
   flex-wrap: wrap;
   text-align: center;
+
+  @include mx.max(sm) {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
 }
 
 .enterpriseText {

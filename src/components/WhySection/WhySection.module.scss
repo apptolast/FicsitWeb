@@ -3,6 +3,18 @@
 .section {
   padding: 80px var(--sp-8);
   background: var(--surface);
+
+  @include mx.max(lg) {
+    padding: 64px var(--sp-6);
+  }
+
+  @include mx.max(md) {
+    padding: 48px var(--sp-4);
+  }
+
+  @include mx.max(sm) {
+    padding: 32px var(--sp-3);
+  }
 }
 
 .inner {
@@ -73,6 +85,16 @@
   .material-symbols-outlined {
     font-size: 1rem;
   }
+
+  @include mx.max(sm) {
+    padding: var(--sp-2) var(--sp-3);
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+
+    .material-symbols-outlined {
+      font-size: 0.875rem;
+    }
+  }
 }
 
 .colGood {
@@ -89,6 +111,16 @@
 
   .material-symbols-outlined {
     font-size: 1rem;
+  }
+
+  @include mx.max(sm) {
+    padding: var(--sp-2) var(--sp-3);
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+
+    .material-symbols-outlined {
+      font-size: 0.875rem;
+    }
   }
 }
 
@@ -113,6 +145,11 @@
   border-right: 1px solid rgba(88, 66, 55, 0.15);
   background: rgba(255, 180, 171, 0.02);
   line-height: 1.5;
+
+  @include mx.max(sm) {
+    padding: var(--sp-2) var(--sp-3);
+    font-size: 0.75rem;
+  }
 }
 
 .goodItem {
@@ -125,6 +162,11 @@
   color: var(--on-surface);
   background: rgba(74, 225, 118, 0.02);
   line-height: 1.5;
+
+  @include mx.max(sm) {
+    padding: var(--sp-2) var(--sp-3);
+    font-size: 0.75rem;
+  }
 }
 
 .iconBad {
@@ -177,6 +219,14 @@
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  @include mx.max(md) {
+    padding: var(--sp-6);
+  }
+
+  @include mx.max(sm) {
+    padding: var(--sp-4);
   }
 }
 

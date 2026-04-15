@@ -3,6 +3,18 @@
 .section {
   padding: 80px var(--sp-8);
   background: var(--surface);
+
+  @include mx.max(lg) {
+    padding: 64px var(--sp-6);
+  }
+
+  @include mx.max(md) {
+    padding: 48px var(--sp-4);
+  }
+
+  @include mx.max(sm) {
+    padding: 32px var(--sp-3);
+  }
 }
 
 .inner {
@@ -15,6 +27,7 @@
 
   @include mx.max(lg) {
     grid-template-columns: 1fr;
+    text-align: center;
   }
 }
 
@@ -22,6 +35,10 @@
   display: flex;
   flex-direction: column;
   gap: var(--sp-6);
+
+  @include mx.max(lg) {
+    align-items: center;
+  }
 }
 
 .eyebrow {
@@ -83,6 +100,19 @@
   gap: var(--sp-4);
   width: 100%;
   max-width: 400px;
+
+  @include mx.max(lg) {
+    max-width: 100%;
+  }
+
+  @include mx.max(md) {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+
+  @include mx.max(sm) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .item {

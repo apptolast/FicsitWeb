@@ -3,6 +3,18 @@
 .section {
   padding: 80px var(--sp-8);
   background: var(--surface-low);
+
+  @include mx.max(lg) {
+    padding: 64px var(--sp-6);
+  }
+
+  @include mx.max(md) {
+    padding: 48px var(--sp-4);
+  }
+
+  @include mx.max(sm) {
+    padding: 32px var(--sp-3);
+  }
 }
 
 .inner {
@@ -55,6 +67,10 @@
 
   @include mx.max(lg) {
     grid-template-columns: 1fr;
+  }
+
+  @include mx.max(md) {
+    gap: var(--sp-6);
   }
 }
 
@@ -132,12 +148,29 @@
   &:hover {
     transform: translateY(-3px);
   }
+
+  @include mx.max(lg) {
+    border-left: 3px solid rgba(88, 66, 55, 0.25);
+  }
+
+  @include mx.max(md) {
+    padding: var(--sp-5);
+  }
+
+  @include mx.max(sm) {
+    padding: var(--sp-4);
+  }
 }
 
 .itemActive .card {
   background: var(--surface-high);
   border-color: rgba(249, 115, 22, 0.3);
   box-shadow: 0 0 20px rgba(249, 115, 22, 0.08);
+
+  @include mx.max(lg) {
+    border-left: 3px solid var(--primary-container);
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.12), -4px 0 12px rgba(249, 115, 22, 0.2);
+  }
 }
 
 .cardTop {
@@ -153,6 +186,10 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--on-surface-variant);
+
+  @include mx.max(sm) {
+    font-size: 0.6875rem;
+  }
 }
 
 .itemActive .qLabel {

@@ -1,35 +1,62 @@
-// Entrypoint for global styles. Imported from src/index.scss.
+// Global styles entrypoint
 @use "./tokens";
 @use "./reset";
+@use "./industrial";
 
 html {
-  font: 18px/1.45 var(--sans);
-  letter-spacing: 0.18px;
-  color: var(--text);
-  background: var(--bg);
+  font: 16px/1.5 var(--font-body);
+  letter-spacing: 0.01em;
+  color: var(--on-surface);
+  background: var(--surface);
 }
 
-@media (max-width: 1024px) {
+body {
+  background: var(--surface);
+  color: var(--on-surface);
+}
+
+@media (min-width: 1024px) {
   html {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 
 h1,
 h2,
-h3 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  color: var(--on-surface);
+  line-height: 1.15;
 }
 
 code,
 kbd,
-samp {
-  font-family: var(--mono);
+samp,
+pre {
+  font-family: var(--font-mono);
   font-size: 0.9em;
-  background: var(--bg-elevated);
+  background: var(--surface-container);
   padding: 2px 6px;
   border-radius: var(--radius-sm);
-  color: var(--text-h);
+  color: var(--on-surface);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }

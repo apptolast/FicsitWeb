@@ -5,6 +5,18 @@
   background: var(--surface);
   position: relative;
   overflow: hidden;
+
+  @include mx.max(lg) {
+    padding: 80px var(--sp-6);
+  }
+
+  @include mx.max(md) {
+    padding: 60px var(--sp-4);
+  }
+
+  @include mx.max(sm) {
+    padding: 48px var(--sp-4);
+  }
 }
 
 .glow {
@@ -31,6 +43,10 @@
   flex-direction: column;
   align-items: center;
   gap: var(--sp-8);
+
+  @include mx.max(md) {
+    padding: 0 var(--sp-2);
+  }
 }
 
 .headline {
@@ -41,6 +57,10 @@
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin: 0;
+
+  @include mx.max(sm) {
+    letter-spacing: -0.02em;
+  }
 }
 
 .sub {
@@ -50,6 +70,15 @@
   color: var(--on-surface-variant);
   margin: 0;
   max-width: 560px;
+
+  @include mx.max(md) {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  @include mx.max(sm) {
+    font-size: 0.9rem;
+  }
 }
 
 .ctas {
@@ -58,6 +87,13 @@
   gap: var(--sp-4);
   flex-wrap: wrap;
   justify-content: center;
+
+  @include mx.max(sm) {
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
 }
 
 .ctaPrimary {
@@ -80,6 +116,13 @@
   &:active {
     transform: translateY(0);
   }
+
+  @include mx.max(sm) {
+    width: 100%;
+    text-align: center;
+    padding: var(--sp-3) var(--sp-6);
+    font-size: 1rem;
+  }
 }
 
 .ctaSecondary {
@@ -98,5 +141,12 @@
     border-color: var(--secondary);
     color: var(--secondary);
     background: rgba(93, 230, 255, 0.05);
+  }
+
+  @include mx.max(sm) {
+    width: 100%;
+    text-align: center;
+    padding: var(--sp-3) var(--sp-6);
+    font-size: 1rem;
   }
 }

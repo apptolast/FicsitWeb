@@ -4,11 +4,25 @@
   padding: 80px var(--sp-8);
   background: var(--surface);
   position: relative;
+  overflow-x: hidden;
+
+  @include mx.max(lg) {
+    padding: 64px var(--sp-6);
+  }
+
+  @include mx.max(md) {
+    padding: 48px var(--sp-4);
+  }
+
+  @include mx.max(sm) {
+    padding: 32px var(--sp-3);
+  }
 }
 
 .inner {
   max-width: 1280px;
   margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: var(--sp-12);
@@ -55,13 +69,15 @@
   gap: var(--sp-8);
   position: relative;
 
-  // Connecting line behind the steps
+  // Connecting line — runs from center of step 01 to center of step 03
+  // Formula: center of col 1 = (container_width - 2*gap) / 6
+  // With gap = var(--sp-8) = 32px: left = (100% - 64px) / 6
   &::before {
     content: '';
     position: absolute;
-    top: 28px;
-    left: calc(16.67% + 16px);
-    right: calc(16.67% + 16px);
+    top: 27px;
+    left: calc((100% - 64px) / 6);
+    right: calc((100% - 64px) / 6);
     height: 2px;
     background: linear-gradient(to right, var(--primary-container), rgba(249, 115, 22, 0.2));
     z-index: 0;
@@ -73,6 +89,14 @@
     &::before {
       display: none;
     }
+  }
+
+  @include mx.max(md) {
+    gap: var(--sp-8);
+  }
+
+  @include mx.max(sm) {
+    gap: var(--sp-6);
   }
 }
 
@@ -91,7 +115,9 @@
   height: 56px;
   border-radius: var(--radius-md);
   border: 2px solid var(--primary-container);
-  background: rgba(249, 115, 22, 0.1);
+  // Solid base background so the line doesn't show through (step 02 would be see-through otherwise)
+  background-color: var(--surface);
+  background-image: linear-gradient(rgba(249, 115, 22, 0.12), rgba(249, 115, 22, 0.12));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,6 +130,15 @@
     font-weight: 700;
     color: var(--primary-container);
     letter-spacing: 0.05em;
+  }
+
+  @include mx.max(sm) {
+    width: 60px;
+    height: 60px;
+
+    span {
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -124,6 +159,7 @@
   display: block;
   width: 100%;
   height: auto;
+  max-width: 100%;
   object-fit: cover;
 }
 
@@ -141,5 +177,5 @@
   line-height: 1.65;
   color: var(--on-surface-variant);
   margin: 0;
-  max-width: 300px;
+  max-width: 100%;
 }

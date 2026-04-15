@@ -8,6 +8,14 @@
   padding: var(--sp-12) var(--sp-8);
   position: relative;
   overflow: hidden;
+
+  @include mx.max(md) {
+    padding: 48px var(--sp-4);
+  }
+
+  @include mx.max(sm) {
+    padding: 32px var(--sp-3);
+  }
 }
 
 .inner {
@@ -28,6 +36,10 @@
   display: flex;
   flex-direction: column;
   gap: var(--sp-6);
+
+  @include mx.max(lg) {
+    text-align: center;
+  }
 }
 
 .badge {
@@ -44,6 +56,15 @@
   color: var(--secondary);
   letter-spacing: 0.05em;
   width: fit-content;
+
+  @include mx.max(lg) {
+    margin: 0 auto;
+  }
+
+  @include mx.max(sm) {
+    font-size: 0.6rem;
+    padding: 3px 8px;
+  }
 }
 
 .ping {
@@ -87,6 +108,15 @@
   color: var(--on-surface);
   letter-spacing: -0.03em;
   margin: 0;
+
+  @include mx.max(md) {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  @include mx.max(sm) {
+    font-size: clamp(1.625rem, 7vw, 2rem);
+    letter-spacing: -0.02em;
+  }
 }
 
 .highlight {
@@ -114,6 +144,15 @@
   color: var(--on-surface-variant);
   max-width: 520px;
   margin: 0;
+
+  @include mx.max(lg) {
+    margin: 0 auto;
+  }
+
+  @include mx.max(sm) {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
 }
 
 .ctas {
@@ -121,6 +160,15 @@
   align-items: center;
   gap: var(--sp-4);
   flex-wrap: wrap;
+
+  @include mx.max(lg) {
+    justify-content: center;
+  }
+
+  @include mx.max(sm) {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .ctaPrimary {
@@ -143,6 +191,12 @@
   &:active {
     transform: translateY(0);
   }
+
+  @include mx.max(sm) {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
 }
 
 .ctaSecondary {
@@ -162,13 +216,29 @@
     color: var(--primary-container);
     background: rgba(249, 115, 22, 0.06);
   }
+
+  @include mx.max(sm) {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
 }
 
 .preview {
   position: relative;
 
   @include mx.max(lg) {
-    display: none;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  @include mx.max(md) {
+    max-width: 440px;
+  }
+
+  @include mx.max(sm) {
+    max-width: 100%;
   }
 }
 
@@ -183,6 +253,16 @@
   background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
+
+  @include mx.max(md) {
+    width: 300px;
+    height: 300px;
+  }
+
+  @include mx.max(sm) {
+    width: 220px;
+    height: 220px;
+  }
 }
 
 .browserWindow {
@@ -197,6 +277,15 @@
 
   &:hover {
     transform: rotate(0deg) translateY(-4px);
+  }
+
+  @include mx.max(lg) {
+    transform: none;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+
+    &:hover {
+      transform: translateY(-4px);
+    }
   }
 }
 

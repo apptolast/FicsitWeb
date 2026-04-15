@@ -1,0 +1,26 @@
+// Glassmorphism & industrial effect utilities
+// Importar con: @use "../../styles/glass" as glass;
+
+@mixin glass-panel {
+  background: rgba(15, 19, 28, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+@mixin ghost-border {
+  border: 1px solid rgba(88, 66, 55, 0.2);
+}
+
+@mixin glow-primary {
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);
+}
+
+@mixin glow-primary-hover {
+  box-shadow: 0 0 25px rgba(249, 115, 22, 0.45);
+}
+
+@mixin grid-bg-overlay {
+  background-image: radial-gradient(circle, #584237 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.08;
+}

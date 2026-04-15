@@ -5,6 +5,14 @@
   border-top: 1px solid rgba(88, 66, 55, 0.2);
   border-bottom: 1px solid rgba(88, 66, 55, 0.2);
   padding: var(--sp-10) var(--sp-8);
+
+  @include mx.max(md) {
+    padding: var(--sp-8) var(--sp-4);
+  }
+
+  @include mx.max(sm) {
+    padding: var(--sp-6) var(--sp-3);
+  }
 }
 
 .inner {
@@ -32,6 +40,14 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: var(--sp-8);
+
+  @include mx.max(md) {
+    gap: var(--sp-4) var(--sp-6);
+  }
+
+  @include mx.max(sm) {
+    gap: var(--sp-3);
+  }
 }
 
 .logo {
@@ -53,6 +69,10 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--on-surface-variant);
+
+  @include mx.max(sm) {
+    font-size: 1rem;
+  }
 }
 
 .counter {

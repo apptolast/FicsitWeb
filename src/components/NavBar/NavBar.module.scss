@@ -54,15 +54,11 @@
 .links {
   display: flex;
   align-items: center;
-  gap: var(--sp-8);
+  gap: var(--sp-6);
   flex: 1;
   justify-content: center;
 
   @include mx.max(lg) {
-    gap: var(--sp-5);
-  }
-
-  @include mx.max(md) {
     display: none;
   }
 }
@@ -92,7 +88,7 @@
   gap: var(--sp-5);
   flex-shrink: 0;
 
-  @include mx.max(md) {
+  @include mx.max(lg) {
     display: none;
   }
 }
@@ -207,7 +203,7 @@
   padding: 10px 8px;
   flex-shrink: 0;
 
-  @include mx.max(md) {
+  @include mx.max(lg) {
     display: flex;
   }
 }
@@ -242,7 +238,7 @@
 
 .mobileMenu {
   position: fixed;
-  top: 57px;
+  top: 72px;
   left: 0;
   right: 0;
   z-index: 99;
@@ -251,11 +247,16 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  max-height: calc(100svh - 57px);
+  max-height: calc(100svh - 72px);
   overflow-y: auto;
   overscroll-behavior: contain;
 
-  @include mx.min(md) {
+  @include mx.max(md) {
+    top: 64px;
+    max-height: calc(100svh - 64px);
+  }
+
+  @include mx.min(lg) {
     display: none;
   }
 }
@@ -351,13 +352,17 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  top: 57px;
+  top: 72px;
   z-index: 98;
   background: rgba(10, 14, 23, 0.75);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 
-  @include mx.min(md) {
+  @include mx.max(md) {
+    top: 64px;
+  }
+
+  @include mx.min(lg) {
     display: none;
   }
 }
