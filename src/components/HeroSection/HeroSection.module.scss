@@ -2,7 +2,6 @@
 @use "../../styles/glass" as glass;
 
 .hero {
-  min-height: 100svh;
   display: flex;
   align-items: center;
   padding: var(--sp-12) var(--sp-8);
@@ -226,10 +225,12 @@
 
 .preview {
   position: relative;
+  max-width: 300px;
+  margin-left: auto;
 
   @include mx.max(lg) {
     width: 100%;
-    max-width: 560px;
+    max-width: 260px;
     margin: 0 auto;
   }
 
@@ -309,6 +310,6 @@
   display: block;
   width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
   filter: saturate(0.9) brightness(0.95);
 }

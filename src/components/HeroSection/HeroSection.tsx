@@ -61,10 +61,10 @@ export function HeroSection() {
             </div>
             <img
               className={styles.dashImg}
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU4-aMvoXLkznIgPhYmGXP7yFuUnCcNr0uCn8PL3bucSdkIO0kPgH2jjkWjiS3U3xwugFTz2erZeSpphlj8WFScp74Yx3oij47H4dsy7h1lNY_N12MLjChbaxsQfx7_YQ8GBk6Gy6Zq5bWU3ZFkNZvnlIbVkHW_Lq0HEE-MVXvmOzks6kYvzHT-QO18Hjhm0hZQMn8emJwE6EQiQYhMmcDEkPYxSk7ODolnEQqQISu0MAiT5NTdJp_NhD_0J7a-GQiNXlEF_v8Ucej"
+              src="/img/PonerFicsitPrincipal.webp"
               alt="FICSIT.monitor dashboard showing power and production metrics"
-              width="800"
-              height="500"
+              width="500"
+              height="300"
             />
           </div>
         </div>
