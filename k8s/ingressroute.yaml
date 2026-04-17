@@ -1,0 +1,51 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-https
+  namespace: ficsitmonitor
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ficsitweb
+  namespace: ficsitmonitor
+  labels:
+    app: ficsitweb
+    app.kubernetes.io/name: ficsitweb
+    app.kubernetes.io/instance: ficsitmonitor
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`ficsitmonitor.apptolast.com`)
+      middlewares:
+        - name: redirect-https
+      services:
+        - name: ficsitweb
+          port: 80
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ficsitweb-tls
+  namespace: ficsitmonitor
+  labels:
+    app: ficsitweb
+    app.kubernetes.io/name: ficsitweb
+    app.kubernetes.io/instance: ficsitmonitor
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`ficsitmonitor.apptolast.com`)
+      services:
+        - name: ficsitweb
+          port: 80
+  tls:
+    secretName: ficsitmonitor-apptolast-com-tls
