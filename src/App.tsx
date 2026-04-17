@@ -1,12 +1,11 @@
-import { createBrowserRouter, RouterProvider } from 'react-router';
+import { createBrowserRouter, redirect, RouterProvider } from 'react-router';
 import { useState } from 'react';
 import { LangContext, type Lang } from './lib/i18n';
 import { LandingPage } from './pages/LandingPage/LandingPage';
-import { DashboardPage } from './pages/DashboardPage/DashboardPage';
 
 const router = createBrowserRouter([
   { path: '/', element: <LandingPage /> },
-  { path: '/dashboard', element: <DashboardPage /> },
+  { path: '*', loader: () => redirect('/') },
 ]);
 
 function App() {
