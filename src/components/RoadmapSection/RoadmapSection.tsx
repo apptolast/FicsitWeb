@@ -12,35 +12,67 @@ type Quarter = {
 
 const QUARTERS: Quarter[] = [
   {
-    q: 'Q1 2026',
-    titleEs: '3D Factory View',
-    titleEn: '3D Factory View',
-    featuresEs: ['Mapa 3D interactivo', 'Overlay de flujo de items', 'Vista de zonas de producción'],
-    featuresEn: ['Interactive 3D map', 'Item flow overlay', 'Production zone view'],
+    q: 'Q2 2026',
+    titleEs: 'MVP Live',
+    titleEn: 'MVP Live',
+    featuresEs: [
+      'Dashboard de servidor, jugadores y energía',
+      'Reverb WebSocket + TimescaleDB',
+      'Despliegue Kubernetes bare-metal',
+    ],
+    featuresEn: [
+      'Server, players and power dashboard',
+      'Reverb WebSocket + TimescaleDB',
+      'Bare-metal Kubernetes deploy',
+    ],
     active: true,
   },
   {
-    q: 'Q2 2026',
-    titleEs: 'AI Forecaster',
-    titleEn: 'AI Forecaster',
-    featuresEs: ['Predicción de cuellos de botella', 'Alertas proactivas de ML', 'Sugerencias de optimización'],
-    featuresEn: ['Bottleneck prediction', 'ML proactive alerts', 'Optimization suggestions'],
-    active: false,
-  },
-  {
     q: 'Q3 2026',
-    titleEs: 'Mobile App Native',
-    titleEn: 'Mobile App Native',
-    featuresEs: ['iOS y Android nativos', 'Push notifications', 'Widget de pantalla de inicio'],
-    featuresEn: ['Native iOS and Android', 'Push notifications', 'Home screen widget'],
+    titleEs: 'Alertas & Logística',
+    titleEn: 'Alerts & Logistics',
+    featuresEs: [
+      'Reglas de alerta por umbral configurables',
+      'Mapa de trenes y drones en vivo',
+      'Notificaciones Discord / Slack',
+    ],
+    featuresEn: [
+      'Configurable threshold alert rules',
+      'Live trains and drones map',
+      'Discord / Slack notifications',
+    ],
     active: false,
   },
   {
     q: 'Q4 2026',
-    titleEs: 'Marketplace Tools',
-    titleEn: 'Marketplace Tools',
-    featuresEs: ['Plugins de comunidad', 'Temas personalizados', 'Dashboards compartibles'],
-    featuresEn: ['Community plugins', 'Custom themes', 'Shareable dashboards'],
+    titleEs: 'Mobile Companion',
+    titleEn: 'Mobile Companion',
+    featuresEs: [
+      'Sync con la app Android FICSIT Monitor',
+      'Push notifications cross-device',
+      'Versión iOS nativa',
+    ],
+    featuresEn: [
+      'Sync with the Android FICSIT Monitor app',
+      'Cross-device push notifications',
+      'Native iOS version',
+    ],
+    active: false,
+  },
+  {
+    q: 'Q1 2027',
+    titleEs: '3D Factory View',
+    titleEn: '3D Factory View',
+    featuresEs: [
+      'Mapa 3D interactivo del mundo',
+      'Overlay de flujo de items',
+      'Vista de zonas de producción',
+    ],
+    featuresEn: [
+      'Interactive 3D world map',
+      'Item flow overlay',
+      'Production zone view',
+    ],
     active: false,
   },
 ];
@@ -48,15 +80,15 @@ const QUARTERS: Quarter[] = [
 const T = {
   es: {
     eyebrow: 'Roadmap',
-    title: 'El futuro de tu factoría',
-    sub: 'Construyendo el dashboard más completo para Satisfactory, trimestre a trimestre.',
+    title: 'Lo que viene en FICSIT.monitor',
+    sub: 'El proyecto está en desarrollo activo. Así es como crece, trimestre a trimestre, y hacia dónde va a continuación.',
     now: 'Ahora',
     planned: 'Planificado',
   },
   en: {
     eyebrow: 'Roadmap',
-    title: 'The future of your factory',
-    sub: 'Building the most complete dashboard for Satisfactory, quarter by quarter.',
+    title: "What's coming to FICSIT.monitor",
+    sub: 'The project is under active development. Here is how it grows, quarter by quarter, and where it is headed next.',
     now: 'Now',
     planned: 'Planned',
   },

@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router';
 import { useLang } from '../../lib/i18n';
 import styles from './NavBar.module.scss';
 
+const DOCS_URL = 'https://apptolast.github.io/FicsitDocumentation/';
+
 const T = {
   es: {
     product: 'Producto',
@@ -11,8 +13,7 @@ const T = {
     integrations: 'Integraciones',
     docs: 'Docs',
     status: 'Estado',
-    login: 'Login',
-    cta: 'Empezar gratis',
+    docsCta: 'Ver documentación',
     openMenu: 'Abrir menú de navegación',
     closeMenu: 'Cerrar menú de navegación',
   },
@@ -23,8 +24,7 @@ const T = {
     integrations: 'Integrations',
     docs: 'Docs',
     status: 'Status',
-    login: 'Login',
-    cta: 'Get started',
+    docsCta: 'View docs',
     openMenu: 'Open navigation menu',
     closeMenu: 'Close navigation menu',
   },
@@ -32,12 +32,12 @@ const T = {
 
 type TKey = keyof (typeof T)['es'];
 
-const NAV_LINKS: Array<{ key: TKey; href: string }> = [
+const NAV_LINKS: Array<{ key: TKey; href: string; external?: boolean }> = [
   { key: 'product', href: '#features' },
   { key: 'features', href: '#features' },
   { key: 'pricing', href: '#pricing' },
   { key: 'integrations', href: '#integrations' },
-  { key: 'docs', href: '#docs' },
+  { key: 'docs', href: DOCS_URL, external: true },
   { key: 'status', href: '#status' },
 ];
 
@@ -77,8 +77,13 @@ export function NavBar() {
 
         {/* Desktop links */}
         <div className={styles.links}>
-          {NAV_LINKS.map(({ key, href }) => (
-            <a key={key} href={href} className={styles.link}>
+          {NAV_LINKS.map(({ key, href, external }) => (
+            <a
+              key={key}
+              href={href}
+              className={styles.link}
+              {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
               {t[key]}
             </a>
           ))}
@@ -105,12 +110,14 @@ export function NavBar() {
               EN
             </button>
           </div>
-          <Link to="/dashboard" className={styles.loginLink}>
-            {t.login}
-          </Link>
-          <Link to="/dashboard" className={styles.ctaBtn}>
-            {t.cta}
-          </Link>
+          <a
+            href={DOCS_URL}
+            className={styles.ctaBtn}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t.docsCta}
+          </a>
         </div>
 
         {/* Hamburger button — mobile only */}
@@ -144,12 +151,13 @@ export function NavBar() {
           aria-label="Navigation menu"
         >
           <nav className={styles.mobileLinks} aria-label="Mobile navigation">
-            {NAV_LINKS.map(({ key, href }) => (
+            {NAV_LINKS.map(({ key, href, external }) => (
               <a
                 key={key}
                 href={href}
                 className={styles.mobileLink}
                 onClick={closeMenu}
+                {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
                 {t[key]}
               </a>
@@ -182,20 +190,15 @@ export function NavBar() {
                 EN
               </button>
             </div>
-            <Link
-              to="/dashboard"
-              className={styles.mobileLoginLink}
-              onClick={closeMenu}
-            >
-              {t.login}
-            </Link>
-            <Link
-              to="/dashboard"
+            <a
+              href={DOCS_URL}
               className={styles.mobileCtaBtn}
               onClick={closeMenu}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {t.cta}
-            </Link>
+              {t.docsCta}
+            </a>
           </div>
         </div>
       )}

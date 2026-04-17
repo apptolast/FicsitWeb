@@ -8,6 +8,7 @@ import { PricingSection } from '../../components/PricingSection/PricingSection';
 import { IntegrationsSection } from '../../components/IntegrationsSection/IntegrationsSection';
 import { RoadmapSection } from '../../components/RoadmapSection/RoadmapSection';
 import { CTASection } from '../../components/CTASection/CTASection';
+import { ContactForm } from '../../components/ContactForm/ContactForm';
 import { ContactGrid } from '../../components/ContactGrid/ContactGrid';
 import { SiteFooter } from '../../components/SiteFooter/SiteFooter';
 import styles from './LandingPage.module.scss';
@@ -28,6 +29,7 @@ export function LandingPage() {
         <IntegrationsSection />
         <RoadmapSection />
         <CTASection />
+        <ContactForm />
         <ContactGrid />
       </main>
       <SiteFooter />

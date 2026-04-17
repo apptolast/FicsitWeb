@@ -10,24 +10,24 @@ type Integration = {
 const INTEGRATIONS: Integration[] = [
   { icon: 'forum', nameEs: 'Discord', nameEn: 'Discord' },
   { icon: 'chat', nameEs: 'Slack', nameEn: 'Slack' },
-  { icon: 'terminal', nameEs: 'Terminal', nameEn: 'Terminal' },
-  { icon: 'hub', nameEs: 'Hub', nameEn: 'Hub' },
-  { icon: 'cloud', nameEs: 'Cloud', nameEn: 'Cloud' },
-  { icon: 'analytics', nameEs: 'Analytics', nameEn: 'Analytics' },
+  { icon: 'webhook', nameEs: 'Webhooks', nameEn: 'Webhooks' },
+  { icon: 'code', nameEs: 'GitHub', nameEn: 'GitHub' },
+  { icon: 'terminal', nameEs: 'REST /v1', nameEn: 'REST /v1' },
+  { icon: 'hub', nameEs: 'Kubernetes', nameEn: 'Kubernetes' },
 ];
 
 const T = {
   es: {
     eyebrow: 'Integraciones',
-    title: 'Conecta con las herramientas que ya usas',
-    sub: 'FICSIT.monitor se integra con tu stack actual. Notificaciones en Discord, alertas en Slack, webhooks a medida, y API REST completa para automatizaciones propias.',
-    connect: 'Conectar ahora',
+    title: 'Enchufa FICSIT.monitor a tu stack',
+    sub: 'Notificaciones en Discord y Slack, webhooks a medida, código abierto en GitHub, API REST /v1 versionada, y despliegue nativo en Kubernetes con Longhorn, MetalLB y Traefik.',
+    connect: 'Contactar',
   },
   en: {
     eyebrow: 'Integrations',
-    title: 'Connect with the tools you already use',
-    sub: 'FICSIT.monitor integrates with your current stack. Discord notifications, Slack alerts, custom webhooks, and a full REST API for your own automations.',
-    connect: 'Connect now',
+    title: 'Plug FICSIT.monitor into your stack',
+    sub: 'Discord and Slack notifications, custom webhooks, open source on GitHub, a versioned REST /v1 API, and native Kubernetes deployment with Longhorn, MetalLB and Traefik.',
+    connect: 'Contact us',
   },
 } as const;
 

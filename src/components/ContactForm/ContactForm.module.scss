@@ -1,0 +1,215 @@
+@use "../../styles/mixins" as mx;
+
+.section {
+  padding: 80px var(--sp-8);
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+
+  @include mx.max(md) {
+    padding: 64px var(--sp-4);
+  }
+
+  @include mx.max(sm) {
+    padding: 48px var(--sp-3);
+  }
+}
+
+.inner {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-container);
+}
+
+.title {
+  font-family: var(--font-headline);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--on-surface);
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.sub {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--on-surface-variant);
+  margin: 0;
+  max-width: 560px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-5);
+  padding: var(--sp-8);
+  background: var(--surface-low);
+  border: 1px solid rgba(88, 66, 55, 0.25);
+  border-radius: var(--radius-lg);
+
+  @include mx.max(md) {
+    grid-template-columns: 1fr;
+    padding: var(--sp-6);
+    gap: var(--sp-4);
+  }
+
+  @include mx.max(sm) {
+    padding: var(--sp-4);
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.fieldFull {
+  grid-column: 1 / -1;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+}
+
+.input,
+.textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--on-surface);
+  background: var(--surface);
+  border: 1px solid rgba(88, 66, 55, 0.4);
+  border-radius: var(--radius-md);
+  padding: var(--sp-3) var(--sp-4);
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+
+  &::placeholder {
+    color: rgba(224, 192, 177, 0.45);
+  }
+
+  &:hover:not(:disabled) {
+    border-color: rgba(249, 115, 22, 0.45);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary-container);
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.18);
+    background: var(--surface-low);
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.55;
+}
+
+.footer {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.privacy {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--on-surface-variant);
+  opacity: 0.75;
+  margin: 0;
+  flex: 1 1 240px;
+}
+
+.submit {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #582200;
+  background: var(--primary-container);
+  padding: var(--sp-3) var(--sp-8);
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.35);
+  transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(249, 115, 22, 0.5);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 3px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    box-shadow: none;
+  }
+
+  @include mx.max(sm) {
+    width: 100%;
+  }
+}
+
+.success,
+.errorMsg {
+  grid-column: 1 / -1;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--radius-md);
+  margin: 0;
+}
+
+.success {
+  color: #4ae176;
+  background: rgba(74, 225, 118, 0.08);
+  border: 1px solid rgba(74, 225, 118, 0.3);
+}
+
+.errorMsg {
+  color: var(--error);
+  background: rgba(255, 180, 171, 0.08);
+  border: 1px solid rgba(255, 180, 171, 0.3);
+}

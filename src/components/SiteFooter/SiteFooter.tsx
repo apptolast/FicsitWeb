@@ -4,7 +4,7 @@ import styles from './SiteFooter.module.scss';
 
 const T = {
   es: {
-    tagline: 'Control industrial en tiempo real para servidores dedicados de Satisfactory.',
+    tagline: 'Dashboard open source de monitorización en tiempo real para servidores dedicados de Satisfactory.',
     copyright: '© 2026 App To Last. Todos los derechos reservados.',
     product: 'Producto',
     links: {
@@ -26,7 +26,7 @@ const T = {
     },
   },
   en: {
-    tagline: 'Real-time industrial control for dedicated Satisfactory servers.',
+    tagline: 'Open-source real-time monitoring dashboard for dedicated Satisfactory servers.',
     copyright: '© 2026 App To Last. All rights reserved.',
     product: 'Product',
     links: {
@@ -74,7 +74,7 @@ export function SiteFooter() {
         <nav className={styles.col} aria-label="Resources links">
           <span className={styles.colTitle}>{t.resources}</span>
           <ul className={styles.linkList}>
-            <li><a href="#docs" className={styles.link}>{t.resourcesLinks.docs}</a></li>
+            <li><a href="https://apptolast.github.io/FicsitDocumentation/" className={styles.link} target="_blank" rel="noopener noreferrer">{t.resourcesLinks.docs}</a></li>
             <li><a href="#api" className={styles.link}>{t.resourcesLinks.api}</a></li>
             <li><a href="#blog" className={styles.link}>{t.resourcesLinks.blog}</a></li>
           </ul>

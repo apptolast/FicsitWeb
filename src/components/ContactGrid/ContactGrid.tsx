@@ -6,25 +6,26 @@ type ContactItem = {
   labelEs: string;
   labelEn: string;
   href: string;
+  external?: boolean;
 };
 
 const CONTACTS: ContactItem[] = [
-  { icon: 'mail', labelEs: 'Email', labelEn: 'Email', href: 'mailto:hello@ficsitmonitor.com' },
-  { icon: 'forum', labelEs: 'Discord', labelEn: 'Discord', href: '#discord' },
-  { icon: 'share', labelEs: 'X/Twitter', labelEn: 'X/Twitter', href: '#twitter' },
-  { icon: 'code', labelEs: 'GitHub', labelEn: 'GitHub', href: '#github' },
-  { icon: 'live_tv', labelEs: 'Twitch', labelEn: 'Twitch', href: '#twitch' },
-  { icon: 'support_agent', labelEs: 'Soporte', labelEn: 'Support', href: '#support' },
+  { icon: 'mail', labelEs: 'Email', labelEn: 'Email', href: 'mailto:pablohurtadohg@gmail.com' },
+  { icon: 'forum', labelEs: 'Discord', labelEn: 'Discord', href: 'https://discord.gg/CPBCGnK5', external: true },
+  { icon: 'share', labelEs: 'X/Twitter', labelEn: 'X/Twitter', href: 'https://x.com/FicsitMonitor', external: true },
+  { icon: 'code', labelEs: 'GitHub', labelEn: 'GitHub', href: 'https://github.com/PabloHurtadoGonzalo86', external: true },
+  { icon: 'photo_camera', labelEs: 'Instagram', labelEn: 'Instagram', href: 'https://www.instagram.com/ficsitmonitor', external: true },
+  { icon: 'music_video', labelEs: 'TikTok', labelEn: 'TikTok', href: 'https://www.tiktok.com/@ficsitmonitor', external: true },
 ];
 
 const T = {
   es: {
-    eyebrow: 'Contacto',
-    title: 'Siempre conectados',
+    eyebrow: 'Comunidad',
+    title: 'Únete a la fábrica',
   },
   en: {
-    eyebrow: 'Contact',
-    title: 'Always connected',
+    eyebrow: 'Community',
+    title: 'Join the factory',
   },
 } as const;
 
@@ -33,7 +34,7 @@ export function ContactGrid() {
   const t = T[lang];
 
   return (
-    <section className={styles.section} id="contact" aria-label="Contact">
+    <section className={styles.section} aria-label="Contact channels">
       <div className={styles.inner}>
         <div className={styles.header}>
           <span className={styles.eyebrow}>{t.eyebrow}</span>
@@ -47,6 +48,7 @@ export function ContactGrid() {
               href={c.href}
               className={styles.item}
               aria-label={lang === 'es' ? c.labelEs : c.labelEn}
+              {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             >
               <span className={`material-symbols-outlined ${styles.icon}`} aria-hidden="true">
                 {c.icon}

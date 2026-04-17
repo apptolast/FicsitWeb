@@ -5,26 +5,26 @@ const T = {
   es: {
     eyebrow: 'Protocolo de Despliegue',
     title: 'Operativo en 3 pasos',
-    sub: 'Sin configuración compleja. Sin DevOps requerido. Tu servidor conectado en minutos.',
+    sub: 'Sin APIs vanilla que llamar ni dashboards que construir. Conecta tu servidor dedicado y empieza a ver datos en minutos.',
     steps: [
       {
         num: '01',
         title: 'Conecta',
-        desc: 'Apunta FICSIT.monitor a tu servidor dedicado con la URL de Reverb y las credenciales de la sesión Laravel.',
+        desc: 'Instala el mod FicsitRemoteMonitoring en tu servidor dedicado de Satisfactory y apunta FICSIT.monitor al backend Laravel + Reverb con la sesión autenticada.',
         img: '/img/Conecta.webp',
         imgAlt: 'Server connection configuration screen',
       },
       {
         num: '02',
         title: 'Recolecta',
-        desc: 'El backend Laravel con Horizon workers procesa y persiste métricas en TimescaleDB de forma continua y automática.',
+        desc: 'Laravel Horizon sondea el FRM, procesa los datos con reglas de negocio y los persiste en TimescaleDB. Cero configuración extra por tu parte.',
         img: '/img/Recolecta.webp',
         imgAlt: 'Data collection and metrics pipeline visualization',
       },
       {
         num: '03',
         title: 'Alerta',
-        desc: 'Recibe notificaciones instantáneas cuando una fábrica se detiene, la energía cae o los trenes se bloquean.',
+        desc: 'Reverb difunde cambios al dashboard en tiempo real y dispara notificaciones cuando una fábrica se detiene, la energía cae o los trenes se bloquean.',
         img: '/img/Alerta.webp',
         imgAlt: 'Alert notification panel showing factory events',
       },
@@ -33,26 +33,26 @@ const T = {
   en: {
     eyebrow: 'Deploy Protocol',
     title: 'Operational in 3 steps',
-    sub: 'No complex configuration. No DevOps required. Your server connected in minutes.',
+    sub: "No vanilla APIs to poke at, no dashboards to build. Connect your dedicated server and start seeing data in minutes.",
     steps: [
       {
         num: '01',
         title: 'Connect',
-        desc: 'Point FICSIT.monitor at your dedicated server with the Reverb URL and Laravel session credentials.',
+        desc: 'Install the FicsitRemoteMonitoring mod on your dedicated Satisfactory server and point FICSIT.monitor at the Laravel + Reverb backend with the authenticated session.',
         img: '/img/Conecta.webp',
         imgAlt: 'Server connection configuration screen',
       },
       {
         num: '02',
         title: 'Collect',
-        desc: 'The Laravel backend with Horizon workers processes and persists metrics in TimescaleDB continuously and automatically.',
+        desc: 'Laravel Horizon polls the FRM mod, processes the data with business rules, and persists it in TimescaleDB. Zero extra configuration on your side.',
         img: '/img/Recolecta.webp',
         imgAlt: 'Data collection and metrics pipeline visualization',
       },
       {
         num: '03',
         title: 'Alert',
-        desc: 'Receive instant notifications when a factory stops, power drops, or trains get stuck.',
+        desc: 'Reverb broadcasts changes to the dashboard in real time and fires notifications when a factory stops, power drops, or trains get stuck.',
         img: '/img/Alerta.webp',
         imgAlt: 'Alert notification panel showing factory events',
       },

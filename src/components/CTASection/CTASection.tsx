@@ -1,19 +1,14 @@
-import { Link } from 'react-router';
 import { useLang } from '../../lib/i18n';
 import styles from './CTASection.module.scss';
 
 const T = {
   es: {
-    headline: '¿Listo para controlar tu factoría?',
-    sub: 'Únete a miles de administradores que ya monitorizan sus servidores de Satisfactory en tiempo real con FICSIT.monitor.',
-    cta1: 'Empezar gratis — sin tarjeta',
-    cta2: 'Ver demo en vivo',
+    headline: '¿Listo para ver tu factoría en vivo?',
+    sub: 'FICSIT.monitor es open source y está en desarrollo activo. Despliégalo tú en tu Kubernetes o espera a la versión gestionada — tú eliges.',
   },
   en: {
-    headline: 'Ready to control your factory?',
-    sub: 'Join thousands of admins already monitoring their Satisfactory servers in real time with FICSIT.monitor.',
-    cta1: 'Get started free — no card needed',
-    cta2: 'See live demo',
+    headline: 'Ready to see your factory live?',
+    sub: 'FICSIT.monitor is open source and under active development. Deploy it yourself on your Kubernetes cluster or wait for the managed version — your call.',
   },
 } as const;
 
@@ -27,10 +22,6 @@ export function CTASection() {
       <div className={styles.inner}>
         <h2 className={styles.headline}>{t.headline}</h2>
         <p className={styles.sub}>{t.sub}</p>
-        <div className={styles.ctas}>
-          <Link to="/dashboard" className={styles.ctaPrimary}>{t.cta1}</Link>
-          <button type="button" className={styles.ctaSecondary}>{t.cta2}</button>
-        </div>
       </div>
     </section>
   );

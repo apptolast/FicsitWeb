@@ -1,7 +1,17 @@
 import { useState } from 'react';
-import { Link } from 'react-router';
+// Link import preserved (commented) — restore alongside the commented <Link> CTAs
+// in each pricing card when re-enabling the "Choose plan" flow.
+// import { Link } from 'react-router';
 import { useLang } from '../../lib/i18n';
 import styles from './PricingSection.module.scss';
+
+const ANNUAL_DISCOUNT = 0.2;
+
+function annualTotal(monthly: string): string {
+  const n = Number(monthly);
+  if (!Number.isFinite(n) || n <= 0) return '0';
+  return (n * 12 * (1 - ANNUAL_DISCOUNT)).toFixed(2);
+}
 
 const T = {
   es: {
@@ -12,6 +22,7 @@ const T = {
     annual: 'Anual',
     annualSave: '-20%',
     mo: '/mes',
+    yr: '/año',
     recommended: 'Recomendado',
     freeTier: {
       name: 'Free Tier',
@@ -22,22 +33,39 @@ const T = {
     hobby: {
       name: 'Hobby',
       price: '4.99',
-      priceAnnual: '3.99',
-      features: ['3 servidores', '30 días de historial', 'Alertas básicas', 'Email soporte'],
+      features: [
+        '3 servidores',
+        '30 días de historial',
+        'Alertas básicas',
+        'Guía de configuración del servidor',
+        'Email soporte',
+      ],
       cta: 'Elegir Hobby',
     },
     industrial: {
       name: 'Industrial Pro',
       price: '12.99',
-      priceAnnual: '10.39',
-      features: ['10 servidores', '1 año de historial', 'Alertas avanzadas', 'API completa', 'Soporte prioritario'],
+      features: [
+        '10 servidores',
+        '1 año de historial',
+        'Alertas avanzadas',
+        'API completa',
+        'Configuración del servidor incluida',
+        'Soporte prioritario',
+      ],
       cta: 'Elegir Industrial',
     },
     team: {
       name: 'Factory Team',
       price: '29.99',
-      priceAnnual: '23.99',
-      features: ['Servidores ilimitados', '5 años de historial', 'SSO + RBAC', 'SLA 99.9%', 'Soporte dedicado'],
+      features: [
+        'Servidores ilimitados',
+        '5 años de historial',
+        'SSO + RBAC',
+        'SLA 99.9%',
+        'Configuración dedicada del servidor',
+        'Soporte dedicado',
+      ],
       cta: 'Elegir Team',
     },
     enterprise: 'Instalación on-premise o requisitos enterprise personalizados',
@@ -51,6 +79,7 @@ const T = {
     annual: 'Annual',
     annualSave: '-20%',
     mo: '/mo',
+    yr: '/yr',
     recommended: 'Recommended',
     freeTier: {
       name: 'Free Tier',
@@ -61,22 +90,39 @@ const T = {
     hobby: {
       name: 'Hobby',
       price: '4.99',
-      priceAnnual: '3.99',
-      features: ['3 servers', '30-day history', 'Basic alerts', 'Email support'],
+      features: [
+        '3 servers',
+        '30-day history',
+        'Basic alerts',
+        'Server setup guide',
+        'Email support',
+      ],
       cta: 'Choose Hobby',
     },
     industrial: {
       name: 'Industrial Pro',
       price: '12.99',
-      priceAnnual: '10.39',
-      features: ['10 servers', '1-year history', 'Advanced alerts', 'Full API', 'Priority support'],
+      features: [
+        '10 servers',
+        '1-year history',
+        'Advanced alerts',
+        'Full API',
+        'Server setup included',
+        'Priority support',
+      ],
       cta: 'Choose Industrial',
     },
     team: {
       name: 'Factory Team',
       price: '29.99',
-      priceAnnual: '23.99',
-      features: ['Unlimited servers', '5-year history', 'SSO + RBAC', '99.9% SLA', 'Dedicated support'],
+      features: [
+        'Unlimited servers',
+        '5-year history',
+        'SSO + RBAC',
+        '99.9% SLA',
+        'Dedicated server setup',
+        'Dedicated support',
+      ],
       cta: 'Choose Team',
     },
     enterprise: 'On-premise installation or custom enterprise requirements',
@@ -88,6 +134,9 @@ export function PricingSection() {
   const { lang } = useLang();
   const t = T[lang];
   const [annual, setAnnual] = useState(false);
+
+  const suffix = annual ? t.yr : t.mo;
+  const priceFor = (monthly: string) => (annual ? annualTotal(monthly) : monthly);
 
   return (
     <section className={styles.section} id="pricing" aria-label="Pricing">
@@ -124,8 +173,8 @@ export function PricingSection() {
             <div className={styles.cardHeader}>
               <span className={styles.tier}>{t.freeTier.name}</span>
               <div className={styles.priceRow}>
-                <span className={styles.price}>${t.freeTier.price}</span>
-                <span className={styles.mo}>{t.mo}</span>
+                <span className={styles.price}>${priceFor(t.freeTier.price)}</span>
+                <span className={styles.mo}>{suffix}</span>
               </div>
             </div>
             <ul className={styles.features}>
@@ -136,7 +185,7 @@ export function PricingSection() {
                 </li>
               ))}
             </ul>
-            <Link to="/dashboard" className={styles.cardCta}>{t.freeTier.cta}</Link>
+            {/* <Link to="/dashboard" className={styles.cardCta}>{t.freeTier.cta}</Link> */}
           </div>
 
           {/* Hobby */}
@@ -144,10 +193,8 @@ export function PricingSection() {
             <div className={styles.cardHeader}>
               <span className={styles.tier}>{t.hobby.name}</span>
               <div className={styles.priceRow}>
-                <span className={styles.price}>
-                  ${annual ? t.hobby.priceAnnual : t.hobby.price}
-                </span>
-                <span className={styles.mo}>{t.mo}</span>
+                <span className={styles.price}>${priceFor(t.hobby.price)}</span>
+                <span className={styles.mo}>{suffix}</span>
               </div>
             </div>
             <ul className={styles.features}>
@@ -158,7 +205,7 @@ export function PricingSection() {
                 </li>
               ))}
             </ul>
-            <Link to="/dashboard" className={styles.cardCta}>{t.hobby.cta}</Link>
+            {/* <Link to="/dashboard" className={styles.cardCta}>{t.hobby.cta}</Link> */}
           </div>
 
           {/* Industrial Pro — featured */}
@@ -167,10 +214,8 @@ export function PricingSection() {
             <div className={styles.cardHeader}>
               <span className={styles.tier}>{t.industrial.name}</span>
               <div className={styles.priceRow}>
-                <span className={styles.price}>
-                  ${annual ? t.industrial.priceAnnual : t.industrial.price}
-                </span>
-                <span className={styles.mo}>{t.mo}</span>
+                <span className={styles.price}>${priceFor(t.industrial.price)}</span>
+                <span className={styles.mo}>{suffix}</span>
               </div>
             </div>
             <ul className={styles.features}>
@@ -181,7 +226,7 @@ export function PricingSection() {
                 </li>
               ))}
             </ul>
-            <Link to="/dashboard" className={styles.cardCtaFeatured}>{t.industrial.cta}</Link>
+            {/* <Link to="/dashboard" className={styles.cardCtaFeatured}>{t.industrial.cta}</Link> */}
           </div>
 
           {/* Factory Team */}
@@ -189,10 +234,8 @@ export function PricingSection() {
             <div className={styles.cardHeader}>
               <span className={styles.tier}>{t.team.name}</span>
               <div className={styles.priceRow}>
-                <span className={styles.price}>
-                  ${annual ? t.team.priceAnnual : t.team.price}
-                </span>
-                <span className={styles.mo}>{t.mo}</span>
+                <span className={styles.price}>${priceFor(t.team.price)}</span>
+                <span className={styles.mo}>{suffix}</span>
               </div>
             </div>
             <ul className={styles.features}>
@@ -203,7 +246,7 @@ export function PricingSection() {
                 </li>
               ))}
             </ul>
-            <Link to="/dashboard" className={styles.cardCta}>{t.team.cta}</Link>
+            {/* <Link to="/dashboard" className={styles.cardCta}>{t.team.cta}</Link> */}
           </div>
         </div>
 

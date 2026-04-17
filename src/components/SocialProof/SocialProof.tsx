@@ -3,12 +3,12 @@ import styles from './SocialProof.module.scss';
 
 const T = {
   es: {
-    trusted: 'Utilizado por equipos de toda la galaxia industrial',
-    servers: '42.8k Servidores Activos',
+    trusted: 'Construido con tecnología industrial y production-grade',
+    servers: 'Open source · Licencia MIT · En desarrollo activo',
   },
   en: {
-    trusted: 'Trusted by teams across the industrial galaxy',
-    servers: '42.8k Servers Active',
+    trusted: 'Built with industrial, production-grade tech',
+    servers: 'Open source · MIT Licensed · Actively developed',
   },
 } as const;
 
@@ -17,12 +17,12 @@ type Company = {
 };
 
 const COMPANIES: Company[] = [
-  { name: 'LUMEN-CORP' },
-  { name: 'STEEL-SYNC' },
-  { name: 'HYPER-PIPE' },
-  { name: 'FICSIT-HUB' },
-  { name: 'IRON-NEXUS' },
-  { name: 'VOLT-CHAIN' },
+  { name: 'LARAVEL 12' },
+  { name: 'REACT 19' },
+  { name: 'TYPESCRIPT' },
+  { name: 'KUBERNETES' },
+  { name: 'TIMESCALEDB' },
+  { name: 'REDIS' },
 ];
 
 export function SocialProof() {
@@ -30,7 +30,7 @@ export function SocialProof() {
   const t = T[lang];
 
   return (
-    <section className={styles.section} aria-label="Social proof">
+    <section className={styles.section} aria-label="Tech stack">
       <div className={styles.inner}>
         <p className={styles.label}>{t.trusted}</p>
 
@@ -43,7 +43,7 @@ export function SocialProof() {
         </div>
 
         <div className={styles.counter}>
-          <span className="material-symbols-outlined" aria-hidden="true">dns</span>
+          <span className="material-symbols-outlined" aria-hidden="true">code</span>
           <span className={styles.counterNum}>{t.servers}</span>
         </div>
       </div>

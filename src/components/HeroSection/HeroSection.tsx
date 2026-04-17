@@ -1,23 +1,18 @@
-import { Link } from 'react-router';
 import { useLang } from '../../lib/i18n';
 import styles from './HeroSection.module.scss';
 
 const T = {
   es: {
-    badge: 'System Online v4.0.2',
-    headline1: 'Monitoriza tu mundo de',
+    badge: 'System Online · v1.0 alpha',
+    headline1: 'Tu servidor dedicado de',
     headline2: 'en tiempo real.',
-    sub: 'Control total sobre tu producción industrial. Datos precisos, telemetría avanzada y alertas instantáneas integradas directamente en tu servidor.',
-    cta1: 'Empezar gratis',
-    cta2: 'Ver demo',
+    sub: 'Dashboard de monitorización para servidores dedicados de Satisfactory desplegados sobre Kubernetes. Métricas de producción, jugadores, energía y alertas actualizadas en vivo — sin abrir el juego.',
   },
   en: {
-    badge: 'System Online v4.0.2',
-    headline1: 'Monitor your',
-    headline2: 'world in real time.',
-    sub: 'Total control over your industrial production. Precise data, advanced telemetry, and instant alerts integrated directly into your server.',
-    cta1: 'Get started',
-    cta2: 'View demo',
+    badge: 'System Online · v1.0 alpha',
+    headline1: 'Your dedicated',
+    headline2: 'server in real time.',
+    sub: 'Monitoring dashboard for dedicated Satisfactory servers deployed on Kubernetes. Production metrics, player tracking, power draw and alerts updated live — without launching the game.',
   },
 } as const;
 
@@ -45,10 +40,6 @@ export function HeroSection() {
 
           <p className={styles.sub}>{t.sub}</p>
 
-          <div className={styles.ctas}>
-            <Link to="/dashboard" className={styles.ctaPrimary}>{t.cta1}</Link>
-            <button type="button" className={styles.ctaSecondary}>{t.cta2}</button>
-          </div>
         </div>
 
         <div className={styles.preview} aria-hidden="true">
