@@ -4,11 +4,11 @@ import styles from './SocialProof.module.scss';
 const T = {
   es: {
     trusted: 'Construido con tecnología industrial y production-grade',
-    servers: 'Open source · Licencia MIT · En desarrollo activo',
+    servers: 'Software propietario · Licencia SaaS · En desarrollo activo',
   },
   en: {
     trusted: 'Built with industrial, production-grade tech',
-    servers: 'Open source · MIT Licensed · Actively developed',
+    servers: 'Proprietary Software · SaaS Licensed · Actively developed',
   },
 } as const;
 
